@@ -1,0 +1,83 @@
+<form [formGroup]="filtroForm" class="filtros-form">
+  <mat-form-field appearance="outline" class="filtro">
+    <mat-label>Tipo</mat-label>
+    <mat-select formControlName="tipo">
+      <mat-option value="">Todos</mat-option>
+      <mat-option *ngFor="let tipo of tipos" [value]="tipo.value">{{
+        tipo.label
+      }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="filtro">
+    <mat-label>Data mínima</mat-label>
+    <input matInput [matDatepicker]="pickerMin" formControlName="dataMin" />
+    <mat-datepicker-toggle matSuffix [for]="pickerMin"></mat-datepicker-toggle>
+    <mat-datepicker #pickerMin></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="filtro">
+    <mat-label>Data máxima</mat-label>
+    <input
+      matInput
+      [matDatepicker]="pickerMax"
+      [max]="hoje"
+      formControlName="dataMax"
+    />
+    <mat-datepicker-toggle matSuffix [for]="pickerMax"></mat-datepicker-toggle>
+    <mat-datepicker #pickerMax></mat-datepicker>
+  </mat-form-field>
+
+  <button mat-flat-button color="primary" (click)="buscar()">Buscar</button>
+  <button mat-flat-button color="primary" (click)="abrirGrafico()">
+    <mat-icon>bar_chart</mat-icon>
+    Gráfico
+  </button>
+</form>
+
+<table mat-table [dataSource]="dataSource" matSort class="table">
+  <ng-container matColumnDef="nome">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Nome</th>
+    <td mat-cell *matCellDef="let investimento">{{ investimento.nome }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="valor">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Valor</th>
+    <td mat-cell *matCellDef="let investimento">
+      R$ {{ investimento.valor | number : "1.2-2" }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="tipo">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Tipo</th>
+    <td mat-cell *matCellDef="let investimento">{{ investimento.tipo }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="data">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Data</th>
+    <td mat-cell *matCellDef="let investimento">
+      {{ investimento.data | date : "dd/MM/yyyy" }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="acoes">
+    <th mat-header-cell *matHeaderCellDef>Ações</th>
+    <td mat-cell *matCellDef="let investimento">
+      <button mat-icon-button color="accent" (click)="editar(investimento)">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button color="warn" (click)="excluir(investimento)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+
+<mat-paginator
+  [pageSizeOptions]="[5, 10, 20]"
+  showFirstLastButtons
+  class="paginator"
+></mat-paginator>

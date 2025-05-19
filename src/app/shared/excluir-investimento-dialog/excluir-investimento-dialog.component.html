@@ -1,0 +1,11 @@
+<h2 mat-dialog-title style="margin-left: 2.5%">Excluir Investimento</h2>
+<mat-dialog-content class="dialog-container">
+  Tem certeza que deseja excluir o investimento
+  <strong> {{ data.nome }} </strong>?
+</mat-dialog-content>
+<mat-dialog-actions class="button-container">
+  <button mat-button (click)="dialogRef.close()">Cancelar</button>
+  <button mat-flat-button color="primary" (click)="dialogRef.close(true)">
+    Excluir
+  </button>
+</mat-dialog-actions>

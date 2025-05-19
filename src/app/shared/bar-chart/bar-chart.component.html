@@ -1,0 +1,13 @@
+<h1 mat-dialog-title class="title">Distribuição de Investimentos por Tipo</h1>
+<div mat-dialog-content class="dialog-content">
+  <canvas
+    baseChart
+    [data]="chartConfig.data"
+    [type]="chartConfig.type"
+    [options]="chartConfig.options"
+  >
+  </canvas>
+</div>
+<div mat-dialog-actions align="center">
+  <button mat-flat-button mat-dialog-close>Fechar</button>
+</div>

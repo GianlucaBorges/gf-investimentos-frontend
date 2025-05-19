@@ -1,0 +1,34 @@
+.filtros-form {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+
+  @media screen and (max-width: 550px) {
+    flex-direction: column;
+    gap: 8px;
+
+    .filtro {
+      width: 100%;
+    }
+
+    button {
+      width: 100%;
+    }
+  }
+}
+
+.table {
+  width: 100%;
+  margin-top: 16px;
+  border-radius: 16px 16px 0 0;
+  overflow: hidden;
+}
+
+.paginator {
+  border-radius: 0 0 16px 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+}

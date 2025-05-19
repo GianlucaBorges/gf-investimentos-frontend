@@ -1,0 +1,18 @@
+.dialog-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.filtro {
+  width: 95%;
+  min-width: 95%;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+  align-self: center;
+}

@@ -1,0 +1,58 @@
+<h1 mat-dialog-title style="margin-left: 2.5%">Editar Investimento</h1>
+<div mat-dialog-content [formGroup]="form" class="dialog-container">
+  <mat-form-field appearance="outline" class="filtro">
+    <mat-label>Nome</mat-label>
+    <input matInput formControlName="nome" />
+    <mat-error *ngIf="form.get('nome')?.hasError('required')">
+      Nome é obrigatório
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="filtro">
+    <mat-label>Valor</mat-label>
+    <input matInput type="number" min="0" formControlName="valor" />
+    <mat-error *ngIf="form.get('valor')?.hasError('required')">
+      Valor é obrigatório
+    </mat-error>
+    <mat-error *ngIf="form.get('valor')?.hasError('min')">
+      Valor deve ser maior que 0
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="filtro">
+    <mat-label>Tipo</mat-label>
+    <mat-select formControlName="tipo">
+      <mat-option *ngFor="let tipo of tipos" [value]="tipo.value">{{
+        tipo.label
+      }}</mat-option>
+    </mat-select>
+    <mat-error *ngIf="form.get('tipo')?.hasError('required')">
+      Tipo é obrigatório
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="filtro">
+    <mat-label>Data</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="data" />
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+    <mat-error *ngIf="form.get('data')?.hasError('required')">
+      Data é obrigatória
+    </mat-error>
+    <mat-error *ngIf="form.get('data')?.hasError('dataInvalida')">
+      Data não pode ser futura
+    </mat-error>
+  </mat-form-field>
+</div>
+
+<div mat-dialog-actions class="button-container">
+  <button mat-button (click)="dialogRef.close()">Cancelar</button>
+  <button
+    mat-button
+    [disabled]="form.invalid"
+    color="primary"
+    (click)="salvar()"
+  >
+    Salvar
+  </button>
+</div>

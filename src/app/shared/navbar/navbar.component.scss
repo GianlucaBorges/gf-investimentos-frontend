@@ -1,0 +1,50 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: #343a40;
+  color: #fff;
+  flex-wrap: wrap;
+  height: auto;
+
+  @media screen and (max-width: 550px) {
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+  }
+}
+
+.span {
+  flex: 1 1 auto;
+  font-size: 1.5rem;
+  font-weight: bold;
+
+  @media screen and (max-width: 550px) {
+    margin-bottom: 0.5rem;
+    text-align: center;
+    width: 100%;
+  }
+}
+
+.nav-button {
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  text-align: left;
+  display: inline-block;
+  font-size: 1.15rem;
+
+  &:hover {
+    text-decoration: underline;
+    background-color: rgba($color: #007bff, $alpha: 0.6);
+  }
+
+  @media screen and (max-width: 550px) {
+    margin: 0.5rem 0;
+    width: 100%;
+    text-align: center;
+  }
+}

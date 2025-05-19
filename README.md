@@ -1,59 +1,87 @@
-# FrontGf
+# GF Investimentos – Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.12.
+Este é o projeto **frontend** da aplicação **GF Investimentos**, desenvolvido com **Angular 19** e **Angular Material**, utilizando **componentes standalone**.
 
-## Development server
+## ✅ Funcionalidades
 
-To start a local development server, run:
+O frontend possui as seguintes funcionalidades principais:
+
+- **Cadastro de Usuário:** formulário para registrar novos usuários.
+- **Login:** autenticação de usuários com validação de credenciais.
+- **Cadastro de Investimentos:** formulário para registrar novos investimentos.
+- **Listagem de Investimentos:** tabela com todos os investimentos cadastrados.
+- **Edição de Investimentos:** funcionalidade para editar investimentos existentes.
+- **Exclusão de Investimentos:** opção para remover investimentos da lista.
+- **Navegação com Navbar:** barra de navegação fixa com links para alternar entre páginas.
+- **Integração com API:** comunicação com o backend Spring Boot para persistência e leitura dos dados.
+- **Design responsivo:** interface adaptável para diferentes tamanhos de tela, com uso de Angular Material.
+- **Gráficos:** visualização de dados com gráficos interativos.
+
+## 📁 Estrutura de Pastas
+
+```bash
+src/
+├── app/
+│   ├── core/                       # Módulo core para serviços e interceptores
+│   ├── guard/                      # Guardas de rota para proteção de páginas
+│   ├── services/                   # Serviços para comunicação com API
+├── evironments/                    # Configurações de ambiente
+├── pages/                          # Páginas principais da aplicação
+├── shared/                         # Componentes compartilhados entre páginas
+├── utils/                          # Funções utilitárias
+├── app.config.ts                  # Configuração principal do aplicativo
+│   └── app.routes.ts           # Rotas com lazy loading
+```
+
+> A aplicação utiliza `router-outlet` para exibir dinamicamente as páginas com base nas rotas configuradas.
+
+## 🚀 Como rodar o projeto
+
+### Pré-requisitos
+
+- [Node.js](https://nodejs.org/) (recomendado: v18+)
+- [Angular CLI](https://angular.io/cli) (versão compatível com Angular 19)
+
+### Instalação
+
+1. Clone o repositório:
+
+```bash
+git clone https://github.com/GianlucaBorges/gf-investimentos-frontend.git
+cd gf-investimentos-frontend
+```
+
+2. Instale as dependências:
+
+```bash
+npm install
+```
+
+3. Execute o projeto localmente:
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+A aplicação estará disponível em: http://localhost:4200
 
-## Code scaffolding
+Certifique-se de que o backend também esteja rodando para permitir a comunicação com a API.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+🔗 Comunicação com o Backend
+As requisições são feitas via HttpClient para o backend Java/Spring Boot na porta configurada no arquivo `src/environments/environment.ts`. O endpoint padrão é `http://localhost:8080/api`.
 
-```bash
-ng generate component component-name
-```
+🛠️ Tecnologias Utilizadas
+Angular 19
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Angular Material
 
-```bash
-ng generate --help
-```
+TypeScript
 
-## Building
+RxJS
 
-To build the project run:
+HTML + SCSS
 
-```bash
-ng build
-```
+📃 Licença
+Projeto desenvolvido internamente para fins educacionais e profissionais. Uso restrito à equipe da empresa GF, salvo autorização prévia.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Desenvolvido com 💼 por [Gianluca Mendes](https://github.com/GianlucaBorges)
